@@ -7,7 +7,7 @@ import os;
 import platform as pltfrm;
 
 # Configure compiler arguments
-cflags = ['-std=c++98', '-Wall', '-Wextra', '-pedantic', '-Wredundant-decls', '-Wshadow', '-Werror', '-O2'];
+cflags = ['-std=c++11', '-Wall', '-Wextra', '-pedantic', '-Wredundant-decls', '-Wshadow', '-Werror', '-O2'];
 
 cpppath = [];
 libpath = [];
@@ -36,9 +36,12 @@ platform = "default";
 if sys.platform == 'win32':
   platform = "mingw";
   # Remove flags that cause compilation errors
-  cflags.remove('-std=c++98'); #::swprintf and ::vswprintf has not been declared
+  cflags.remove('-std=c++11'); #::swprintf and ::vswprintf has not been declared
   linkflags.append('-enable-auto-import');
   cpppath.append('-Ic:\\MinGW\\include');
+
+cpppath.append('-I../jsoncpp/include');
+libpath.append('-L../jsoncpp/libs');
 
 # Create an environment
 env = Environment(ENV= os.environ.copy(), tools = [platform, "doxygen"], toolpath = ['.', './doc'], CXXFLAGS = cflags, CPPPATH = cpppath, LIBPATH = libpath, LINKFLAGS = linkflags);
