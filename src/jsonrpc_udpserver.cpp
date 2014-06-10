@@ -23,6 +23,7 @@
  */
 
 #include <stdexcept>
+#include <iostream>
 
 #include "jsonrpc_udpserver.h"
 
