@@ -1,0 +1,3 @@
+[submodule "jsoncpp"]
+	path = jsoncpp
+	url = https://github.com/monetas/JsonCpp.git
