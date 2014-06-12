@@ -6,7 +6,7 @@ before_install: ./scripts/travis/install-deps.sh
 before_script:
   - git submodule init
   - git submodule update
-script: cd jsoncpp && scons && cd .. && scons
+script: cd jsoncpp && scons platform='linux-gcc' && cd .. && scons
 notifications:
   recipients:
     - tommy@monetas.net
