@@ -40,8 +40,8 @@ if sys.platform == 'win32':
   linkflags.append('-enable-auto-import');
   cpppath.append('-Ic:\\MinGW\\include');
 
-cpppath.append('-I../jsoncpp/include');
-libpath.append('-L../jsoncpp/libs');
+cpppath.append('-Ijsoncpp/include');
+libpath.append('-Ljsoncpp/libs');
 
 # Create an environment
 env = Environment(ENV= os.environ.copy(), tools = [platform, "doxygen"], toolpath = ['.', './doc'], CXXFLAGS = cflags, CPPPATH = cpppath, LIBPATH = libpath, LINKFLAGS = linkflags);
