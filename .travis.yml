@@ -1,0 +1,12 @@
+before_install: sudo apt-get install scons
+language: cpp
+compiler:
+  - gcc
+  - clang
+script: scons
+notifications:
+  recipients:
+    - tommy@monetas.net
+  email:
+    on_success: change
+    on_failure: always
